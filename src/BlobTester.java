@@ -36,7 +36,6 @@ public class BlobTester {
 		Files.delete(p);
 		File f = new File ("objects");
 		f.delete();
-		
 	}
 
 	@BeforeEach
@@ -55,7 +54,6 @@ public class BlobTester {
 		File f = new File("./objects/2846a43bef88668a42e41c2842f76a74e828432d.zip");
 		assertTrue(f.exists());	//checks if the file was created
 		assertTrue(blolkob.pop()); //checks if the file was deleted
-		
 		tearDownAfterClass();
 	}
 
