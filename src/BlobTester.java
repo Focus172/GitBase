@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
-
+import java.nio.file.*;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -12,34 +13,50 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.*;
 
-class BlobTester {
-
+public class BlobTester {
+	
 	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-//		 Path p = Paths.get("test.txt");
-//	        try {
-//	            Files.writeString(p, "example", StandardCharsets.ISO_8859_1);
-//	        } catch (IOException e) {
-//	            // TODO Auto-generated catch block
-//	            e.printStackTrace();
-//	        }
+	//makes test files and objects folder required for just testing the blob class
+	public static void setUpBeforeClass() throws Exception {
+		File f =new File("objects");
+		f.mkdir();
+		Path p = Paths.get("textTESTER.txt");
+	       try {
+	           Files.writeString(p, "line 1\nline 2\nline 3", StandardCharsets.ISO_8859_1);
+	       } catch (IOException e) {
+	           // TODO Auto-generated catch block
+	           e.printStackTrace();
+	       }
 	}
 
 	@AfterAll
-	static void tearDownAfterClass() throws Exception {
+	//deletes test files and objects folder
+	public static void tearDownAfterClass() throws Exception {
+		Path p = Paths.get("textTESTER.txt");
+		Files.delete(p);
+		File f = new File ("objects");
+		f.delete();
+		
 	}
 
 	@BeforeEach
-	void setUp() throws Exception {
+	public void setUp() throws Exception {
 	}
 
 	@AfterEach
-	void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	public void test() throws Exception {
+		setUpBeforeClass();
+		
+		Blob blolkob = new Blob("textTESTER.txt");
+		File f = new File("./objects/2846a43bef88668a42e41c2842f76a74e828432d.zip");
+		assertTrue(f.exists());	//checks if the file was created
+		assertTrue(blolkob.pop()); //checks if the file was deleted
+		
+		tearDownAfterClass();
 	}
 
 }
