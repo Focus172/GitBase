@@ -63,6 +63,14 @@ public class IndexTester {
 		Files.delete(p);
 		Path h = Paths.get("testing2.txt");
 		Files.delete(h);
+		Path l = Paths.get("testing3.txt");
+		Files.delete(l);
+		Path po = Paths.get("testing4.txt");
+		Files.delete(po);
+		Path p2o = Paths.get("index.txt");
+		Files.delete(p2o);
+		Path objb = Paths.get("objects");
+		Files.delete(objb);
 		
 	}
 
@@ -130,7 +138,10 @@ public class IndexTester {
 		fr4.close();
 		assertEquals(str4, "textTESTER.txt : 2846a43bef88668a42e41c2842f76a74e828432dtesting2.txt : 68f57a0fd01deb21ca8d4afbcd64897f181ef59ftesting4.txt : d239c4b51a74c4fd66c8acda7c2be9f446a44f38");//checks index with a blob removed
 		assertFalse(i.removeBlob("testing3.txt"));//checks removing a blob that doesn't exist
-		
+		assertTrue(i.removeBlob("testing2.txt"));
+		assertTrue(i.removeBlob("textTESTER.txt"));
+		assertTrue(i.removeBlob("testing4.txt"));//removes the rest of the blobs to make deleting the objects folder easier in tearDown
+		tearDownAfterClass();
 	}
 
 }
