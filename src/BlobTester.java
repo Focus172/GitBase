@@ -48,6 +48,7 @@ public class BlobTester {
 
 	@Test
 	public void test() throws Exception {
+		//only tests blob so it isnt 80%, indexTester does it all
 		setUpBeforeClass();
 		
 		Blob blolkob = new Blob("textTESTER.txt");
@@ -55,6 +56,7 @@ public class BlobTester {
 		assertTrue(f.exists());	//checks if the file was created
 		assertTrue(blolkob.pop()); //checks if the file was deleted
 		tearDownAfterClass();
+		
 	}
 
 }
