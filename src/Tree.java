@@ -10,15 +10,11 @@ import java.util.HashMap;
 public class Tree {
 	private String bigString;
 	private String shawed;
-	private HashMap<String, String> mapped;
 	
 	public Tree(ArrayList<String> listOfString) throws NoSuchAlgorithmException, IOException {
-		mapped = new HashMap<String, String>();
 		bigString = listOfString.get(0);
-		mapped.put(listOfString.get(0).substring(0,4), listOfString.get(0).substring(7));
 		for(int i=1; i<listOfString.size(); i++) {
 			bigString = bigString + "\n" +listOfString.get(i);
-			mapped.put(listOfString.get(i).substring(0,4), listOfString.get(i).substring(7));
 		}
 		shawed = GenerateHash(bigString);
 		makeAndWriteToFile();
