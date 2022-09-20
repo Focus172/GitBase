@@ -1,3 +1,6 @@
+package testers;
+
+import git.Blob;
 import static org.junit.jupiter.api.Assertions.*;
 import java.nio.file.*;
 import java.io.File;
