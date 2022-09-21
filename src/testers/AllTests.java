@@ -1,7 +1,7 @@
 package testers;
 
-import static org.junit.Assert.assertTrue;
 
+import static org.junit.Assert.assertTrue;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.suite.api.IncludeClassNamePatterns;
 import org.junit.platform.suite.api.IncludeTags;
