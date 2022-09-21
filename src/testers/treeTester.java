@@ -4,7 +4,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import git.Index;
 import git.Tree;
-public class treeTest {
+public class treeTester {
 
 	public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
 		// TODO Auto-generated method stub
