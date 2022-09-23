@@ -1,3 +1,5 @@
+package testers;
+import git.Index;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.BufferedReader;
@@ -8,6 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Objects;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -69,8 +72,14 @@ public class IndexTester {
 		Files.delete(po);
 		Path p2o = Paths.get("index.txt");
 		Files.delete(p2o);
-		Path objb = Paths.get("objects");
-		Files.delete(objb);
+		File objects = new File ("objects");
+        objects.mkdir();
+        for (File file: Objects.requireNonNull(objects.listFiles())) {
+        	if (!file.isDirectory()) {
+        		file.delete();
+        	}
+        }
+		objects.delete();
 		
 	}
 
